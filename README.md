@@ -18,36 +18,32 @@ The zip file contains two files:
 3 ## 8  09001 10100404  PM25-PRI   234.178 POINT 1999
 4 ## 12 09001 10100501  PM25-PRI     0.128 POINT 1999
 
-** fips: A five-digit number (represented as a string) indicating the U.S. county
-** SCC: The name of the source as indicated by a digit string (see source code classification table)
-** Pollutant: A string indicating the pollutant
-** Emissions: Amount of PM2.5 emitted, in tons
-** type: The type of source (point, non-point, on-road, or non-road)
-** year: The year of emissions recorded
+*fips* : A five-digit number (represented as a string) indicating the U.S. county
+*SCC* : The name of the source as indicated by a digit string (see source code classification table)
+*Pollutant* : A string indicating the pollutant
+*Emissions* : Amount of PM2.5 emitted, in tons
+*type* : The type of source (point, non-point, on-road, or non-road)
+*year* : The year of emissions recorded
 
-* 2. Source Classification Code Table (Source_Classification_Code.rds): This table provides a mapping from the SCC digit strings in the Emissions table to the actual name of the PM2.5 source. The sources are categorized in a few different ways from more general to more specific and you may choose to explore whatever categories you think are most useful. For example, source “10100101” is known as “Ext Comb /Electric Gen /Anthracite Coal /Pulverized Coal”.
+* 1. Source Classification Code Table (Source_Classification_Code.rds): This table provides a mapping from the SCC digit strings in the Emissions table to the actual name of the PM2.5 source. The sources are categorized in a few different ways from more general to more specific and you may choose to explore whatever categories you think are most useful. For example, source “10100101” is known as “Ext Comb /Electric Gen /Anthracite Coal /Pulverized Coal”.
 
-You can read each of the two files using the 
-readRDS()
-readRDS() function in R. For example, reading in each file can be done with the following code:
+You can read each of the two files using the readRDS() function in R. For example, reading in each file can be done with the following code:
 
-## This first line will likely take a few seconds. Be patient!
+Note: This first line will likely take a few seconds. Be patient!
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 as long as each of those files is in your current working directory (check by calling dir() and see if those files are in the listing).
 
-Assignment
-less 
+# Assignment
+
 The overall goal of this assignment is to explore the National Emissions Inventory database and see what it say about fine particulate matter pollution in the United states over the 10-year period 1999–2008. You may use any R package you want to support your analysis.
 
-Questions
+## Questions
 You must address the following questions and tasks in your exploratory analysis. For each question/task you will need to make a single plot. Unless specified, you can use any plotting system in R to make your plot.
 
 Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? Using the base plotting system, make a plot showing the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
 
-Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (
-fips == "24510"
-fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot answering this question.
+Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot answering this question.
 
 Of the four types of sources indicated by the 
 type
